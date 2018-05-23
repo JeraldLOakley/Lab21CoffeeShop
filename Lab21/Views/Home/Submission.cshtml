@@ -1,10 +1,17 @@
-﻿
+﻿@using Lab21.Models
 @{
     ViewBag.Title = "Submission";
 }
 
 <h2>Submission</h2>
-Name: @ViewBag.RegFirstName @ViewBag.RegLastName <br/>
-Email: @ViewBag.RegEmail<br />
-Phone number: @ViewBag.RegPhone<br />
+@{
+    Registration r = ViewBag.Registration;
+}
+
+
+Name: @r.FirstName @r.LastName <br />
+Address: @r.Address<br />
+Email: @r.Email<br />
+Phone number: @r.PhoneNumber<br />
+
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Lab21.Models;
 
 namespace Lab21.Controllers
 {
@@ -28,16 +29,22 @@ namespace Lab21.Controllers
         }
         public ActionResult Registration()
         {
+            Registration regForm = new Registration();
+            ViewBag.RegForm = regForm; 
             return View();
         }
 
-        public ActionResult Submission(string fName, string lName, string email, long phone = 0)
+        public ActionResult Submission(Registration r)
         {
-            ViewBag.RegFirstName = fName;
-            ViewBag.RegLastName = lName;
-            ViewBag.RegEmail = email;
-            ViewBag.RegPhone = phone;
-            return View();
+            if (ModelState.IsValid)
+            {
+                ViewBag.Registration = r;
+                return View();
+            }
+            else
+            {
+                return View("Registration");
+            }
         }
 
 
