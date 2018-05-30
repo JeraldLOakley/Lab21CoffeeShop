@@ -52,6 +52,7 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            <span id="PhoneNumberWarning"></span>
         </div>
     </div>
 
@@ -118,7 +119,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Submit" class="btn btn-default" onclick="return CheckEmail()" />     
+            <input type="submit" value="Submit" class="btn btn-default" onclick= "return CheckEmail()" />     
             <input type="reset" value="Clear form" class="btn btn-default" />
         </div>
   </div>  
@@ -126,14 +127,30 @@
             }
 <script>
     function CheckEmail() {
+       
         var email = document.getElementById("Email").value;
         var checkEmail = /\b[\w][^_]{5,30}@@[\w]{5,10}.\w{2,3}\b/;
-        if (checkEmail.test(email)) {
+        if (!checkEmail.test(email)) {
             document.getElementById("EmailWarning").innerHTML =
                 "<b>" + email + " is not a valid email address</b>";
             return false;
         }
-        else true
+        else return true;
+
+        function CheckPhone() {
+           
+            var phone = document.getElementById("PhoneNumber").value;
+            var checkPhone = /\b(\d{3}[-]){2}\d{4}\b/;
+            if (!checkPhone.test(phone)) {
+                document.getElementById("PhoneNumberWarning").innerHTML =
+                    "<b>" + phone + " is not a valid phone number</b>";
+                return false;
+            }
+            else return true;
+
+        }
+
+
     }
 </script>
 
