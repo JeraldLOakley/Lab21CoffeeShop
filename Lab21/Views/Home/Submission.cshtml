@@ -3,15 +3,12 @@
     ViewBag.Title = "Submission";
 }
 
-<h2>Submission</h2>
-@{
-    Registration r = ViewBag.Registration;
-}
+<h1>Submission</h1>
+ <h2>Congratulations!</h2>
+@ViewBag.message
 
-
-Name: @r.FirstName @r.LastName <br />
-Address: @r.Address<br />
-Email: @r.Email<br />
-Phone number: @r.PhoneNumber<br />
+ <div>
+     @Html.ActionLink("Back to Home", "Index")
+ </div>
 
 

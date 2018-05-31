@@ -11,6 +11,8 @@ namespace Lab21.Controllers
     {
         public ActionResult Index()
         {
+            CoffeeEntities ORM = new CoffeeEntities();
+            ViewBag.Items = ORM.Items.ToList();
             return View();
         }
 
@@ -29,28 +31,33 @@ namespace Lab21.Controllers
         }
         public ActionResult Registration()
         {
-            Registration regForm = new Registration();
-            ViewBag.RegForm = regForm; 
             return View();
         }
 
-        public ActionResult Submission(Registration r)
+        public ActionResult Submission(User data)
         {
+            CoffeeEntities ORM = new CoffeeEntities();
             if (ModelState.IsValid)
             {
-                ViewBag.Registration = r;
-                return View();
+                try
+                {
+                    ORM.Users.Add(data);
+                    ORM.SaveChanges();
+                    ViewBag.message = $"All information has been added";
+                }
+                catch (Exception e)
+                {
+                    ViewBag.message = $"error! {e.Message}";
+
+                    return View();
+                }
             }
             else
             {
-                return View("Registration");
+                ViewBag.message = $" User information is not valid, cannot add to DB";
             }
+
+            return View();
         }
-
-
-
-
-
     }
-
 }

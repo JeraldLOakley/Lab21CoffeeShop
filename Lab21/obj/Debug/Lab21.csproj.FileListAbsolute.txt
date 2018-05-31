@@ -89,3 +89,7 @@ C:\Users\Jerald\source\repos\Lab21\Lab21\obj\Debug\Lab21.csproj.CoreCompileInput
 C:\Users\Jerald\source\repos\Lab21\Lab21\obj\Debug\Lab21.csproj.CopyComplete
 C:\Users\Jerald\source\repos\Lab21\Lab21\obj\Debug\Lab21.dll
 C:\Users\Jerald\source\repos\Lab21\Lab21\obj\Debug\Lab21.pdb
+C:\Users\Jerald\source\repos\Lab21\Lab21\bin\EntityFramework.dll
+C:\Users\Jerald\source\repos\Lab21\Lab21\bin\EntityFramework.SqlServer.dll
+C:\Users\Jerald\source\repos\Lab21\Lab21\bin\EntityFramework.xml
+C:\Users\Jerald\source\repos\Lab21\Lab21\bin\EntityFramework.SqlServer.xml

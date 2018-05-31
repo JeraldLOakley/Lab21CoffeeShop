@@ -1,4 +1,4 @@
-﻿@model Lab21.Models.Registration
+﻿
 
 @{
     ViewBag.Title = "Registration";
@@ -6,128 +6,126 @@
 
 <h2>Registration</h2>
 
-@using (Html.BeginForm("Submission","Home")) 
-{
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>Registration</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        <label class="control-label col-md-2" for="FirstName">First Name</label>
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="LastName">Last Name</label>
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            <span id="EmailWarning"></span>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label col-md-2" for="PhoneNumber">Phone Number</label>
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
-            <span id="PhoneNumberWarning"></span>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label col-md-2" for="PreferredCoffee">Preferred Coffee</label>
-        <div class="col-md-10">
-            <select class="form-control" id="PreferredCoffee">
-                <option selected disabled>Please select a roast</option>
-                <option>Dark Roast-Sulawesi Kalossi</option>
-                <option>Dark Roast-Ethiopian Yirgacheffe</option>
-                <option>Medium Roast-City Roast Papua New Guinea</option>
-                <option>Medium Roast-Colombian Supremo</option>
-                <option>Light Roast-Costa Rican Tarrazu</option>
-                <option>Light Roast-Ethiopian Yirgacheffe</option>
-                <option>Decaf-Guatemalan</option>
-                <option>Decaf-French Roast</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <p>Types of music you like</p>
-        <div class="col-md-4">
-            <label class="checkbox">
-                <input type="checkbox" value="option1"> Jazz
-            </label>
-            <label class="checkbox">
-                <input type="checkbox" value="option2"> Electronic
-            </label>
-            <label class="checkbox">
-                <input type="checkbox" value="option3"> Country
-            </label>
-            <label class="checkbox">
-                <input type="checkbox" value="option3"> Hip-Hop
-            </label>
-        </div>
-        <div class="col-md-4">
-            <label class="checkbox">
-                <input type="checkbox" value="option1"> Punk
-            </label>
-            <label class="checkbox">
-                <input type="checkbox" value="option2"> Alternative
-            </label>
-            <label class="checkbox">
-                <input type="checkbox" value="option3"> Blues
-            </label>
-            <label class="checkbox">
-                <input type="checkbox" value="option3"> Pop
-            </label>
-        </div>
-        <div class="col-md-4">
-            <label class="checkbox">
-                <input type="checkbox" value="option1"> Classic Rock
-            </label>
-            <label class="checkbox">
-                <input type="checkbox" value="option2"> Classical
-            </label>
-            <label class="checkbox">
-                <input type="checkbox" value="option3"> Oldies
-            </label>
-            <label class="checkbox">
-                <input type="checkbox" value="Latin"> Latin
-            </label>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Submit" class="btn btn-default" onclick= "return CheckEmail()" />     
-            <input type="reset" value="Clear form" class="btn btn-default" />
-        </div>
-  </div>  
-</div>
-            }
-<script>
-    function CheckEmail() {
+  
+<form action="/Home/Submission">
+    <div class="form-horizontal">
+        <h4>Registration</h4>
+        <hr />
        
+        <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">First Name</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="FirstName" name="FirstName" type="text" value="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="LastName">Last Name</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="LastName" name="LastName" type="text" value="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Address">Address</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Address" name="Address" type="text" value="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Email">Email</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Email" name="Email" type="text" value="">
+                <span id="EmailWarning"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="PhoneNumber">Phone Number</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="PhoneNumber" name="PhoneNumber" type="text" value="">
+                <span id="PhoneNumberWarning"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="PreferredCoffee">Preferred Coffee</label>
+            <div class="col-md-10">
+                <select class="form-control" id="PreferredCoffee" name="PreferredCoffee">
+                    <option selected disabled>Please select a roast</option>
+                    <option>Dark Roast-Sulawesi Kalossi</option>
+                    <option>Dark Roast-Ethiopian Yirgacheffe</option>
+                    <option>Medium Roast-City Roast Papua New Guinea</option>
+                    <option>Medium Roast-Colombian Supremo</option>
+                    <option>Light Roast-Costa Rican Tarrazu</option>
+                    <option>Light Roast-Ethiopian Yirgacheffe</option>
+                    <option>Decaf-Guatemalan</option>
+                    <option>Decaf-French Roast</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <p>Types of music you like</p>
+            <div class="col-md-4">
+                <label class="checkbox">
+                    <input type="checkbox" value="Jazz" name="FavoriteMusic"> Jazz
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="Electronic" name="FavoriteMusic"> Electronic
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="Country" name="FavoriteMusic"> Country
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="Hip-Hop" name="FavoriteMusic"> Hip-Hop
+                </label>
+            </div>
+            <div class="col-md-4">
+                <label class="checkbox">
+                    <input type="checkbox" value="Punk" name="FavoriteMusic"> Punk
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="Alternative" name="FavoriteMusic"> Alternative
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="Blues" name="FavoriteMusic"> Blues
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="Pop" name="FavoriteMusic"> Pop
+                </label>
+            </div>
+            <div class="col-md-4">
+                <label class="checkbox">
+                    <input type="checkbox" value="Classic Rock" name="FavoriteMusic"> Classic Rock
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="Classical" name="FavoriteMusic"> Classical
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="Oldies" name="FavoriteMusic"> Oldies
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="Latin" name="FavoriteMusic"> Latin
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-default" onclick="return CheckEmail()" />
+                <input type="reset" value="Clear form" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<script>
+
+    function CheckEmail() {
+
         var email = document.getElementById("Email").value;
         var checkEmail = /\b[\w][^_]{5,30}@@[\w]{5,10}.\w{2,3}\b/;
         if (!checkEmail.test(email)) {
@@ -138,7 +136,7 @@
         else return true;
 
         function CheckPhone() {
-           
+
             var phone = document.getElementById("PhoneNumber").value;
             var checkPhone = /\b(\d{3}[-]){2}\d{4}\b/;
             if (!checkPhone.test(phone)) {
@@ -154,6 +152,6 @@
     }
 </script>
 
-            <div>
-                @Html.ActionLink("Back to Home", "Index")
-            </div>
+<div>
+    @Html.ActionLink("Back to Home", "Index")
+</div>
