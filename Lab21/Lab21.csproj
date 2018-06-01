@@ -151,6 +151,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -172,6 +173,8 @@
     <Compile Include="Models\Item.cs">
       <DependentUpon>CoffeeShopDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ItemDAO.cs" />
+    <Compile Include="Models\ItemIDAO.cs" />
     <Compile Include="Models\Registration.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>CoffeeShopDB.tt</DependentUpon>
@@ -234,6 +237,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Submission.cshtml" />
     <Content Include="Views\Home\Registration.cshtml" />
+    <Content Include="Views\Items\Create.cshtml" />
+    <Content Include="Views\Items\Delete.cshtml" />
+    <Content Include="Views\Items\Edit.cshtml" />
+    <Content Include="Views\Items\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

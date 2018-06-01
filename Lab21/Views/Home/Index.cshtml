@@ -8,8 +8,8 @@
     <table>
         <tr>
             <th class="col-sm-3">Coffee </th>
-            <th class="col-sm-3">Description </thclass="col-sm-3">
-            <th class="col-sm-3">In Stock </thclass="col-sm-3">
+            <th class="col-sm-3">Description </th >
+            <th class="col-sm-3">In Stock </th >
             <th class="col-sm-3">Price Per 1 lb. Bag</th>
         </tr>
         @foreach (Lab21.Models.Item item in ViewBag.Items)
@@ -17,7 +17,7 @@
             <tr>
                 <td class="col-sm-3"> @item.Name</td>
                 <td class="col-sm-3"> @item.Description</td>
-                <td class="col-sm-3"> @item.Quantity</td>
+                <td class="col-sm-3"> @item.Stock</td>
                 <td class="col-sm-3"> @item.Price</td>
             </tr>
         }
