@@ -81,7 +81,71 @@ namespace Lab21.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+		public ActionResult Menu()
+		{
+			ViewBag.Items = dao.GetItemList();
+			return View();
+		}
+
+		public ActionResult MenuSorted(string column)
+		{
+			CoffeeEntities db = new CoffeeEntities();
+			
+			if (column == "Name")
+			{
+				ViewBag.Items = (from i in db.Items
+								 orderby i.Name
+								 select i).ToList();
+			}
+			else if (column == "Description")
+			{
+				ViewBag.Items = (from i in db.Items
+								 orderby i.Description
+								 select i).ToList();
+			}
+			else if (column == "Stock")
+			{
+				ViewBag.Items = (from i in db.Items
+								 orderby i.Stock
+								 select i).ToList();
+			}
+			else if (column == "Price")
+			{
+				ViewBag.Items = (from i in db.Items
+								 orderby i.Price
+								 select i).ToList();
+			}
+			return View("Menu");
+		}
+			public ActionResult Add(int? id)
+			{
+			CoffeeEntities db = new CoffeeEntities();
+				if (Session["Cart"] == null)
+				{
+					
+					List<Item> cart = new List<Item>();
+					
+					cart.Add((from i in db.Items
+							  where i.ID == id
+							  select i).Single());
+					
+					Session.Add("Cart", cart);
+				}
+				else
+				{
+					
+					List<Item> cart = (List<Item>)(Session["Cart"]);
+					
+					cart.Add((from i in db.Items
+							  where i.ID == id
+							  select i).Single());
+				}
+				return View("Add") ;
+			}
+
+
+
+		protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
@@ -89,5 +153,8 @@ namespace Lab21.Controllers
             }
             base.Dispose(disposing);
         }
-    }
+
+
+
+	}
 }

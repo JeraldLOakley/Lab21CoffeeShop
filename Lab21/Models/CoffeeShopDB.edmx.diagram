@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="b2c4006d050342deb6ac80786f3454c4" Name="Diagram1">
         <EntityTypeShape EntityType="CoffeeShopDBModel.Item" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CoffeeShopDBModel.User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoffeeShopDBModel.User" Width="1.5" PointX="3.375" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
